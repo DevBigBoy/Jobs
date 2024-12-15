@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="crocoit_jobs_department" resource="default" engine="innodb" comment="CrocoIT Departments Table">
+        <column xsi:type="int" name="department_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="255" comment="Department Name"/>
+        <column xsi:type="text" name="description" nullable="false" comment="Department Description"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Department Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Department Modification Time"/>
+        <column xsi:type="smallint" name="is_active" unsigned="false" nullable="false" identity="false"
+                default="1" comment="Is Department Active"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="department_id"/>
+        </constraint>
+        <index referenceId="CROCOIT_DEPARTMENT_NAME_DESCRIPTION" indexType="fulltext">
+            <column name="name"/>
+            <column name="description"/>
+        </index>
+    </table>
+
+    <table name="crocoit_jobs_job" resource="default" engine="innodb" comment="CrocoIT Job Table">
+        <column xsi:type="int" name="job_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Job Title"/>
+        <column xsi:type="varchar" name="location" nullable="false" length="100" comment="Job Location"/>
+        <column xsi:type="varchar" name="type" nullable="false" length="100" comment="Job Type"/>
+        <column xsi:type="text" name="description" nullable="false" comment="Job Description"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Job Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Job Modification Time"/>
+        <column xsi:type="smallint" name="is_active" unsigned="false" nullable="false" identity="false"
+                default="1" comment="Is Job Active"/>
+        <column xsi:type="int" name="department_id" unsigned="true" nullable="false" identity="false"
+                comment="Department ID"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="job_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FK_CROCOIT_JOBS_DEPARTMENT" table="crocoit_jobs_job"
+                    column="department_id" referenceTable="crocoit_jobs_department" referenceColumn="department_id" onDelete="CASCADE"/>
+        <index referenceId="CROCOIT_JOBS_DEPARTMENT_ID" indexType="btree">
+            <column name="department_id"/>
+        </index>
+        <index referenceId="CROCOIT_JOBS_TITLE_DESCRIPTION_LOCATION_TYPE" indexType="fulltext">
+            <column name="title"/>
+            <column name="description"/>
+            <column name="location"/>
+            <column name="type"/>
+        </index>
+    </table>
+</schema>
