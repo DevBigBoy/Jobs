@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="CrocoIT\Jobs\Api\Data\DepartmentInterface"
+                type="CrocoIT\Jobs\Model\Department" />
+
+    <preference for="CrocoIT\Jobs\Api\Data\JobInterface"
+                type="CrocoIT\Jobs\Model\Job" />
+
+
+
+</config>

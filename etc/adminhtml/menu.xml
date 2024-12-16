@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="CrocoIT_Jobs::job_head"
+            title="CrocoIT"
+            translate="title"
+            module="CrocoIT_Jobs"
+            sortOrder="100"
+            resource="CrocoIT_Jobs::job_head"/>
+        <add
+            id="CrocoIT_Jobs::department"
+            title="Departments"
+            translate="title"
+            module="CrocoIT_Jobs"
+            sortOrder="10"
+            parent="CrocoIT_Jobs::job_head"
+            action="crocoit_jobs/department/index"
+            resource="CrocoIT_Jobs::job"/>
+        <add
+            id="CrocoIT_Jobs::job"
+            title="Jobs"
+            translate="title"
+            module="CrocoIT_Jobs"
+            sortOrder="20"
+            parent="CrocoIT_Jobs::job_head"
+            action="crocoit_jobs/job/index"
+            resource="CrocoIT_Jobs::job"/>
+    </menu>
+</config>
