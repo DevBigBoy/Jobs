@@ -9,4 +9,27 @@
     <preference for="CrocoIT\Jobs\Api\Data\JobInterface"
                 type="CrocoIT\Jobs\Model\Job" />
 
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="crocoit_department_listing_data_source" xsi:type="string">CrocoIT\Jobs\Model\ResourceModel\Department\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="CrocoIT\Jobs\Model\ResourceModel\Department\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">crocoit_jobs_department</argument>
+            <argument name="eventPrefix" xsi:type="string">crocoit_jobs_department_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">department_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">CrocoIT\Jobs\Model\ResourceModel\Department</argument>
+        </arguments>
+    </type>
+
+    <type name="CrocoIT\Jobs\Model\ResourceModel\Department\CollectionFactory">
+        <arguments>
+            <argument name="popup" xsi:type="object">CrocoIT\Jobs\Model\ResourceModel\Department</argument>
+        </arguments>
+    </type>
+
 </config>
