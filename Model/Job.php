@@ -9,96 +9,99 @@ use CrocoIT\Jobs\Model\ResourceModel\Job as JobResource;
 
 class Job extends AbstractModel implements JobInterface
 {
-    /**
-     * Initialize the resource model
-     */
     protected function _construct()
     {
         $this->_init(JobResource::class);
     }
 
-    public function getId(): ?int
+    public function getJobId(): int
     {
-        return $this->getData(self::JOB_ID);
+        return (int) $this->getData(JobInterface::JOB_ID);
     }
 
-    public function getTitle(): ?string
+    public function setJobId(int $jobId): self
     {
-        return $this->getData(self::TITLE);
+        return $this->setData(JobInterface::JOB_ID, $jobId);
     }
 
-    public function setTitle(string $title): JobInterface
+    public function getTitle(): string
     {
-        return $this->setData(self::TITLE, $title);
+        return (string) $this->getData(JobInterface::TITLE);
     }
 
-    public function getLocation(): ?string
+    public function setTitle(string $title): self
     {
-        return $this->getData(self::LOCATION);
+        return $this->setData(JobInterface::TITLE, $title);
     }
 
-    public function setLocation(string $location): JobInterface
+    public function getLocation(): string
     {
-        return $this->setData(self::LOCATION, $location);
+        return (string) $this->getData(JobInterface::LOCATION);
     }
 
-    public function getType(): ?string
+    public function setLocation(string $location): self
     {
-        return $this->getData(self::TYPE);
+        return $this->setData(JobInterface::LOCATION, $location);
     }
 
-    public function setType(string $type): JobInterface
+    public function getType(): string
     {
-        return $this->setData(self::TYPE, $type);
+        return (string) $this->getData(JobInterface::TYPE);
     }
 
-    public function getDescription(): ?string
+    public function setType(string $type): self
     {
-        return $this->getData(self::DESCRIPTION);
+        return $this->setData(JobInterface::TYPE, $type);
     }
 
-    public function setDescription(string $description): JobInterface
+    public function getDescription(): string
     {
-        return $this->setData(self::DESCRIPTION, $description);
+        return (string) $this->getData(JobInterface::DESCRIPTION);
     }
 
-    public function getCreatedAt(): ?string
+    public function setDescription(string $description): self
     {
-        return $this->getData(self::CREATED_AT);
+        return $this->setData(JobInterface::DESCRIPTION, $description);
     }
 
-    public function setCreatedAt(string $createdAt): JobInterface
-    {
-        return $this->setData(self::CREATED_AT, $createdAt);
-    }
-
-    public function getUpdatedAt(): ?string
-    {
-        return $this->getData(self::UPDATED_AT);
-    }
-
-    public function setUpdatedAt(string $updatedAt): JobInterface
-    {
-        return $this->setData(self::UPDATED_AT, $updatedAt);
-    }
 
     public function getIsActive(): bool
     {
-        return (bool)$this->getData(self::IS_ACTIVE);
+        return (bool) $this->getData(JobInterface::IS_ACTIVE);
     }
 
-    public function setIsActive(bool $isActive): JobInterface
+    public function setIsActive(bool $isActive): self
     {
-        return $this->setData(self::IS_ACTIVE, $isActive);
+        return $this->setData(JobInterface::IS_ACTIVE, $isActive);
     }
 
-    public function getDepartmentId(): ?int
+    public function getDepartmentId(): int
     {
-        return $this->getData(self::DEPARTMENT_ID);
+        return (int) $this->getData(JobInterface::DEPARTMENT_ID);
     }
 
-    public function setDepartmentId(int $departmentId): JobInterface
+    public function setDepartmentId(int $departmentId): self
     {
-        return $this->setData(self::DEPARTMENT_ID, $departmentId);
+        return $this->setData(JobInterface::DEPARTMENT_ID, $departmentId);
+    }
+
+    public function getCreatedAt(): string
+    {
+        return (string) $this->getData(JobInterface::CREATED_AT);
+    }
+
+    public function setCreatedAt(string $createdAt): self
+    {
+        return $this->setData(JobInterface::CREATED_AT, $createdAt);
+    }
+
+    public function getUpdatedAt(): string
+    {
+        return (string) $this->getData(JobInterface::UPDATED_AT);
+    }
+
+    public function setUpdatedAt(string $updatedAt): self
+    {
+        return $this->setData(JobInterface::UPDATED_AT, $updatedAt);
     }
 }

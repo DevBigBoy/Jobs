@@ -9,11 +9,10 @@ use CrocoIT\Jobs\Model\ResourceModel\Job as JobResource;
 
 class Collection extends AbstractCollection
 {
-    /**
-     * Initialize model and resource model
-     */
     protected function _construct()
     {
-        $this->_init(Job::class, JobResource::class);
+        $this->_init(
+            Job::class,
+            JobResource::class);
     }
 }

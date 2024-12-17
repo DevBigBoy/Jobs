@@ -11,7 +11,7 @@ interface JobInterface
     public const STATUS_DISABLED = 0;
     public const STATUS_ENABLED = 1;
 
-    public const ID = 'job_id';
+    public const JOB_ID = 'job_id';
     public const TITLE = 'title';
     public const LOCATION = 'location';
     public const TYPE = 'type';
@@ -24,7 +24,13 @@ interface JobInterface
     /**
      * @return int
      */
-    public function getId(): int;
+    public function getJobId(): int;
+
+    /**
+     * @param int $jobId
+     * @return self
+     */
+    public function setJobId(int $jobId): self;
 
     /**
      * @return string

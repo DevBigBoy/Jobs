@@ -9,6 +9,4 @@
     <preference for="CrocoIT\Jobs\Api\Data\JobInterface"
                 type="CrocoIT\Jobs\Model\Job" />
 
-
-
 </config>

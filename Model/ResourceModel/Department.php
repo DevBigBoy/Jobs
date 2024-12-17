@@ -8,11 +8,11 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class Department extends AbstractDb
 {
-    /**
-     * Initialize the table and primary key
-     */
-    protected function _construct()
-    {
-        $this->_init(DepartmentInterface::Table_Name, DepartmentInterface::ID);
-    }
+   public function _construct()
+   {
+       $this->_init(
+           DepartmentInterface::TABLE_NAME,
+           DepartmentInterface::DEPARTMENT_ID
+       );
+   }
 }

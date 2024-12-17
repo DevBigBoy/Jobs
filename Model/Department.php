@@ -7,7 +7,6 @@ namespace CrocoIT\Jobs\Model;
 use CrocoIT\Jobs\Api\Data\DepartmentInterface;
 use Magento\Framework\Model\AbstractModel;
 use CrocoIT\Jobs\Model\ResourceModel\Department as DepartmentResource;
-use Magento\Tests\NamingConvention\true\string;
 
 class Department extends AbstractModel implements DepartmentInterface
 {
@@ -18,54 +17,61 @@ class Department extends AbstractModel implements DepartmentInterface
 
     public function getDepartmentId(): int
     {
-        return $this->getData(DepartmentInterface::DEPARTMENT_ID);
+        return (int) $this->getData(DepartmentInterface::DEPARTMENT_ID);
+    }
+
+    public function setDepartmentId(int $departmentId): self
+    {
+        return $this->setData(DepartmentInterface::DEPARTMENT_ID, $departmentId);
     }
 
     public function getName(): string
     {
-        return $this->getData(DepartmentInterface::NAME);
+        return (string) $this->getData(DepartmentInterface::NAME);
     }
+
     public function setName(string $name): self
     {
-        $this->setData(DepartmentInterface::NAME, $name);
+        return $this->setData(DepartmentInterface::NAME, $name);
     }
 
     public function getDescription(): string
     {
-        return $this->getData(DepartmentInterface::DESCRIPTION);
+        return (string) $this->getData(DepartmentInterface::DESCRIPTION);
     }
 
     public function setDescription(string $description): self
     {
-        $this->setData(DepartmentInterface::DESCRIPTION, $description);
+        return $this->setData(DepartmentInterface::DESCRIPTION, $description);
     }
 
     public function getCreatedAt(): string
     {
-        return $this->getData(DepartmentInterface::CREATED_AT);
+        return (string) $this->getData(DepartmentInterface::CREATED_AT);
     }
 
     public function setCreatedAt(string $createdAt): self
     {
-        $this->setData(DepartmentInterface::CREATED_AT, $createdAt);
+        return $this->setData(DepartmentInterface::CREATED_AT, $createdAt);
     }
 
     public function getUpdatedAt(): string
     {
-        return $this->getData(DepartmentInterface::UPDATED_AT);
+        return (string) $this->getData(DepartmentInterface::UPDATED_AT);
     }
 
     public function setUpdatedAt(string $updatedAt): self
     {
-        $this->setData(DepartmentInterface::UPDATED_AT, $updatedAt);
+        return $this->setData(DepartmentInterface::UPDATED_AT, $updatedAt);
     }
 
-    public function setIsActive(bool $isActive): bool
-    {
-       $this->setData(DepartmentInterface::IS_ACTIVE, $isActive);
-    }
     public function getIsActive(): bool
     {
-        return $this->getData(DepartmentInterface::IS_ACTIVE);
+        return (bool) $this->getData(DepartmentInterface::IS_ACTIVE);
+    }
+
+    public function setIsActive(bool $isActive): self
+    {
+        return $this->setData(DepartmentInterface::IS_ACTIVE, $isActive);
     }
 }

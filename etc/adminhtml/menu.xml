@@ -17,7 +17,7 @@
             sortOrder="10"
             parent="CrocoIT_Jobs::job_head"
             action="crocoit_jobs/department/index"
-            resource="CrocoIT_Jobs::job"/>
+            resource="CrocoIT_Jobs::department"/>
         <add
             id="CrocoIT_Jobs::job"
             title="Jobs"

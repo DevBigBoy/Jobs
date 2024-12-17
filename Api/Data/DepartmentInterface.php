@@ -17,7 +17,11 @@ interface DepartmentInterface
     public const UPDATED_AT = 'updated_at';
     public const IS_ACTIVE = 'is_active';
 
-
+    /**
+     * @param int $departmentId
+     * @return self
+     */
+    public function setDepartmentId(int $departmentId): self;
     /**
      * @return int
      */
